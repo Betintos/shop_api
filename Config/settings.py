@@ -34,22 +34,29 @@ AUTH_USER_MODEL = "account.User"
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # libs
+]
+
+INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "django_filters",
     "drf_yasg",
-    # apps
+]
+
+CREATED_APPS = [
     "account",
     "product",
+    "order",
 ]
+
+INSTALLED_APPS = DJANGO_APPS + INSTALLED_APPS + CREATED_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -134,7 +141,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATIC_ROOT = BASE_DIR / "static"
 
-MEDIA_URL = "product_img"
+MEDIA_URL = "product_img/"
 MEDIA_ROOT = BASE_DIR / "product_img"
 
 # Default primary key field type
