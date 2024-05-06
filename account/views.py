@@ -16,7 +16,7 @@ class RegisterView(APIView):
         serializer = RegisterSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        return Response("Вы успешно зарегистрировались!")
+        return Response("Вы успешно зарегистрировались!", 201)
 
 
 class ActivationView(APIView):
@@ -27,4 +27,4 @@ class ActivationView(APIView):
         user.activation_code = ""
         user.is_active = True
         user.save()
-        return Response("Активировано")
+        return Response("Активировано", 200)
